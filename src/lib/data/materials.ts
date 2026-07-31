@@ -1,0 +1,77 @@
+import type { Material } from "@/types";
+
+export const materials: Material[] = [
+  {
+    id: "m1",
+    title: "Diapositivas - Integrales Múltiples",
+    subject: "Cálculo II",
+    type: "slides",
+    size: "4.2 MB",
+    downloads: 1240,
+    uploadedAt: "Hace 2 horas",
+    uploadedById: "u2",
+    courseSlug: "calculo-i",
+    description:
+      "Presentación completa de la semana con ejemplos resueltos y la lista de ejercicios de práctica.",
+  },
+  {
+    id: "m2",
+    title: "Guía rápida de Python - Listas y Diccionarios",
+    subject: "Programación I",
+    type: "pdf",
+    size: "1.8 MB",
+    downloads: 830,
+    uploadedAt: "Hace 1 día",
+    uploadedById: "u1",
+    courseSlug: "python-desde-cero",
+    description:
+      "Resumen visual con los casos de uso más comunes y errores típicos de principiantes.",
+  },
+  {
+    id: "m3",
+    title: "Video: Mecanismo de sustitución SN1 y SN2",
+    subject: "Química Orgánica",
+    type: "video",
+    size: "120 MB",
+    downloads: 560,
+    uploadedAt: "Hace 2 días",
+    uploadedById: "u4",
+    courseSlug: "quimica-organica",
+    description:
+      "Clase grabada con animaciones de los mecanismos de reacción y comparación de factores.",
+  },
+  {
+    id: "m4",
+    title: "Plantilla de informe académico (Word)",
+    subject: "Metodología",
+    type: "doc",
+    size: "860 KB",
+    downloads: 2010,
+    uploadedAt: "Hace 3 días",
+    uploadedById: "u6",
+    description:
+      "Plantilla con estilos de título, citas y referencias ya configurados en normas APA.",
+  },
+  {
+    id: "m5",
+    title: "Ejercicios resueltos - Anatomía del corazón",
+    subject: "Anatomía II",
+    type: "pdf",
+    size: "2.4 MB",
+    downloads: 470,
+    uploadedAt: "Hace 4 días",
+    uploadedById: "u7",
+    description: "Banco de preguntas con respuestas justificadas para autoevaluación.",
+  },
+  {
+    id: "m6",
+    title: "Colección de texturas para renders",
+    subject: "Diseño Arquitectónico",
+    type: "link",
+    size: "—",
+    downloads: 320,
+    uploadedAt: "Hace 5 días",
+    uploadedById: "u5",
+    description: "Enlace a un repositorio abierto con texturas libres de uso académico.",
+  },
+];

@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: knowledge --default, knowledge-dark --prefersdark;
+}
+
+/* ---------------- Tema claro ---------------- */
+@plugin "daisyui/theme" {
+  name: "knowledge";
+  default: true;
+  color-scheme: light;
+  --color-base-100: oklch(99% 0 0);
+  --color-base-200: oklch(96.7% 0.004 262);
+  --color-base-300: oklch(93.5% 0.007 262);
+  --color-base-content: oklch(22% 0.02 265);
+  --color-primary: oklch(55% 0.23 277);
+  --color-primary-content: oklch(99% 0 0);
+  --color-secondary: oklch(56% 0.21 296);
+  --color-secondary-content: oklch(99% 0 0);
+  --color-accent: oklch(69% 0.12 205);
+  --color-accent-content: oklch(20% 0.04 230);
+  --color-neutral: oklch(26% 0.02 265);
+  --color-neutral-content: oklch(94% 0.01 255);
+  --color-info: oklch(70% 0.13 245);
+  --color-info-content: oklch(15% 0.03 245);
+  --color-success: oklch(72% 0.16 155);
+  --color-success-content: oklch(15% 0.03 155);
+  --color-warning: oklch(82% 0.16 85);
+  --color-warning-content: oklch(22% 0.03 85);
+  --color-error: oklch(63% 0.2 20);
+  --color-error-content: oklch(98% 0 0);
+  --radius-selector: 0.75rem;
+  --radius-field: 0.625rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* ---------------- Tema oscuro ---------------- */
+@plugin "daisyui/theme" {
+  name: "knowledge-dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: oklch(23.5% 0.016 265);
+  --color-base-200: oklch(21% 0.015 265);
+  --color-base-300: oklch(18.5% 0.014 265);
+  --color-base-content: oklch(92% 0.015 255);
+  --color-primary: oklch(74% 0.15 277);
+  --color-primary-content: oklch(16% 0.03 277);
+  --color-secondary: oklch(71% 0.13 296);
+  --color-secondary-content: oklch(16% 0.03 296);
+  --color-accent: oklch(77% 0.1 205);
+  --color-accent-content: oklch(18% 0.03 205);
+  --color-neutral: oklch(18.5% 0.014 265);
+  --color-neutral-content: oklch(92% 0.015 255);
+  --color-info: oklch(77% 0.11 245);
+  --color-info-content: oklch(18% 0.03 245);
+  --color-success: oklch(79% 0.13 155);
+  --color-success-content: oklch(18% 0.03 155);
+  --color-warning: oklch(85% 0.12 85);
+  --color-warning-content: oklch(20% 0.03 85);
+  --color-error: oklch(69% 0.17 20);
+  --color-error-content: oklch(18% 0.03 20);
+  --radius-selector: 0.75rem;
+  --radius-field: 0.625rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/20;
+  }
+}
+
+@layer utilities {
+  .font-sans {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  .glass {
+    background: color-mix(in oklch, var(--color-base-100) 78%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .card-glow {
+    box-shadow:
+      0 1px 2px oklch(0% 0 0 / 0.04),
+      0 12px 32px -12px oklch(0% 0 0 / 0.18);
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        color-mix(in oklch, currentColor 7%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, currentColor 7%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 28px 28px;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out both;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-float-delay {
+    animation: float 6s ease-in-out 1.2s infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
