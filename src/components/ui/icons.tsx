@@ -702,3 +702,13 @@ export const IconInstagram = (p: IconProps) => (
     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
   </svg>
 );
+
+export const IconAtom = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+    <path d="M12 12c4-4 7-3 7-3M12 12c-4-4-7-3-7-3M12 12c4 4 7 3 7 3M12 12c-4 4-7 3-7 3" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+  </svg>
+);

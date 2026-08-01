@@ -75,6 +75,14 @@ export function Navbar() {
               </Link>
 
               <Link
+                href="/malla"
+                className="btn btn-ghost btn-sm hidden items-center gap-2 rounded-full text-base-content/80 lg:flex"
+              >
+                <IconLayers size={16} />
+                Malla
+              </Link>
+
+              <Link
                 href="/publish"
                 className="btn btn-primary btn-sm hidden items-center gap-1.5 rounded-full sm:inline-flex"
               >
@@ -226,6 +234,12 @@ export function Navbar() {
               <Link href="/explore">
                 <IconSearch size={18} />
                 Explorar
+              </Link>
+            </li>
+            <li>
+              <Link href="/malla">
+                <IconLayers size={18} />
+                Malla curricular
               </Link>
             </li>
             <li>

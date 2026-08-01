@@ -19,6 +19,7 @@ export const publications: Publication[] = [
     gradient: "from-sky-500 via-blue-600 to-indigo-600",
     featured: true,
     difficulty: "Principiante",
+    courseCode: "INF120",
     blocks: [
       {
         type: "paragraph",
@@ -203,6 +204,7 @@ export const publications: Publication[] = [
     gradient: "from-indigo-500 via-violet-600 to-purple-600",
     featured: true,
     difficulty: "Intermedio",
+    courseCode: "MAT101",
     blocks: [
       {
         type: "paragraph",
@@ -290,6 +292,7 @@ export const publications: Publication[] = [
     gradient: "from-teal-500 via-emerald-600 to-green-600",
     featured: false,
     difficulty: "Principiante",
+    courseCode: "INF312",
     blocks: [
       {
         type: "paragraph",
@@ -381,6 +384,7 @@ export const publications: Publication[] = [
     gradient: "from-cyan-500 via-sky-600 to-blue-600",
     featured: false,
     difficulty: "Principiante",
+    courseCode: "INF433",
     blocks: [
       {
         type: "paragraph",
@@ -463,6 +467,7 @@ export const publications: Publication[] = [
     gradient: "from-rose-500 via-red-600 to-orange-600",
     featured: false,
     difficulty: "Principiante",
+    courseCode: "INF462",
     blocks: [
       {
         type: "paragraph",
@@ -545,6 +550,7 @@ export const publications: Publication[] = [
     gradient: "from-amber-500 via-orange-600 to-rose-600",
     featured: false,
     difficulty: "Principiante",
+    courseCode: "INF513",
     blocks: [
       {
         type: "paragraph",
@@ -628,6 +634,7 @@ export const publications: Publication[] = [
     gradient: "from-fuchsia-500 via-pink-600 to-rose-600",
     featured: false,
     difficulty: "Intermedio",
+    courseCode: "MAT302",
     blocks: [
       {
         type: "paragraph",

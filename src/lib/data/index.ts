@@ -11,3 +11,4 @@ export * from "./comments";
 export * from "./notifications";
 export * from "./messages";
 export * from "./saved";
+export * from "./curriculum";

@@ -3,21 +3,28 @@ import { Metadata } from "next";
 import {
   categories,
   getFeaturedPublications,
+  gestionOf,
   popularTags,
   publications,
+  semesters,
   users,
 } from "@/lib/data";
 import { CategoryCard } from "@/components/CategoryCard";
 import { TrendsSidebar } from "@/components/TrendsSidebar";
+import { SubjectIcon } from "@/components/ui/SubjectIcon";
 import {
   FeaturedPublicationCard,
   PublicationListRow,
 } from "@/components/publications/PublicationCard";
 import {
   IconArrowRight,
+  IconCalendar,
+  IconGraduation,
+  IconLayers,
   IconSearch,
   IconSparkles,
 } from "@/components/ui/icons";
+import { gradientOf } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Inicio",
@@ -126,6 +133,112 @@ export default function HomePage() {
           {categories.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Tu malla curricular</h2>
+            <p className="text-sm text-base-content/60">
+              Tu carrera organizada por semestres y gestiones académicas
+            </p>
+          </div>
+          <Link
+            href="/malla"
+            className="btn btn-ghost btn-sm hidden rounded-full text-primary sm:inline-flex"
+          >
+            Ver malla completa
+            <IconArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-3">
+          <div className="relative overflow-hidden rounded-box border border-base-300/70 bg-base-100 p-6 card-glow lg:col-span-1">
+            <div
+              className="absolute inset-0 bg-gradient-to-br opacity-90"
+              style={{ background: "linear-gradient(135deg, #8b5cf6, #6d28d9, #d946ef)" }}
+            />
+            <div className="absolute inset-0 bg-grid text-white/15" aria-hidden />
+            <div className="relative flex h-full flex-col justify-between gap-6 text-white">
+              <div>
+                <span className="badge border-0 bg-white/15 backdrop-blur-sm">
+                  <IconCalendar size={13} />
+                  Gestión {gestionOf(1)}
+                </span>
+                <h3 className="mt-3 text-2xl font-extrabold leading-tight">
+                  Tu semestre actual
+                </h3>
+                <p className="mt-1 text-sm text-white/80">
+                  Semestre 1 de 9 · 5 materias · 18 créditos
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {semesters[0].subjects.map((subject) => (
+                  <Link
+                    key={subject.code}
+                    href={`/materia/${subject.code}`}
+                    className="flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
+                  >
+                    <SubjectIcon name={subject.icon} size={14} />
+                    {subject.code}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
+            {semesters.slice(1, 4).map((semester) => (
+              <div
+                key={semester.number}
+                className="rounded-box border border-base-300/70 bg-base-100 p-5 card-glow"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="flex items-center gap-2 font-bold">
+                    <IconLayers size={17} className="text-primary" />
+                    Semestre {semester.number}
+                  </h3>
+                  <span className="badge badge-ghost badge-sm rounded-full">
+                    {semester.gestion}
+                  </span>
+                </div>
+                <ul className="flex flex-col gap-1.5">
+                  {semester.subjects.slice(0, 3).map((subject) => (
+                    <li key={subject.code}>
+                      <Link
+                        href={`/materia/${subject.code}`}
+                        className="group flex items-center gap-2 rounded-lg p-1.5 transition-colors hover:bg-base-200/70"
+                      >
+                        <span
+                          className="flex size-7 shrink-0 items-center justify-center rounded-md text-white"
+                          style={{ background: gradientOf(subject.gradient) }}
+                        >
+                          <SubjectIcon name={subject.icon} size={14} />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-sm font-medium group-hover:text-primary">
+                            {subject.name}
+                          </span>
+                          <span className="block font-mono text-[11px] text-base-content/50">
+                            {subject.code}
+                          </span>
+                        </span>
+                        <IconGraduation size={14} className="text-base-content/40" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/malla?gestion=${semester.gestion}`}
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                >
+                  Ver semestre completo
+                  <IconArrowRight size={13} />
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

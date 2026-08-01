@@ -11,6 +11,7 @@ export const materials: Material[] = [
     uploadedAt: "Hace 2 horas",
     uploadedById: "u2",
     courseSlug: "calculo-i",
+    courseCode: "MAT102",
     description:
       "Presentación completa de la semana con ejemplos resueltos y la lista de ejercicios de práctica.",
   },
@@ -24,11 +25,64 @@ export const materials: Material[] = [
     uploadedAt: "Hace 1 día",
     uploadedById: "u1",
     courseSlug: "python-desde-cero",
+    courseCode: "INF120",
     description:
       "Resumen visual con los casos de uso más comunes y errores típicos de principiantes.",
   },
   {
     id: "m3",
+    title: "Apuntes de SQL - JOINs sin llorar",
+    subject: "Base de Datos I",
+    type: "pdf",
+    size: "1.2 MB",
+    downloads: 1105,
+    uploadedAt: "Hace 2 días",
+    uploadedById: "u1",
+    courseCode: "INF312",
+    description:
+      "Tabla comparativa de JOINs con ejemplos ejecutables y los errores clásicos de primerizo.",
+  },
+  {
+    id: "m4",
+    title: "Guía de Redes - El modelo TCP/IP",
+    subject: "Redes I",
+    type: "slides",
+    size: "3.6 MB",
+    downloads: 940,
+    uploadedAt: "Hace 3 días",
+    uploadedById: "u6",
+    courseCode: "INF433",
+    description:
+      "Resumen visual de las cuatro capas con el diagrama del viaje de un paquete.",
+  },
+  {
+    id: "m5",
+    title: "Prácticas de Estructuras de Datos - Pilas y Colas",
+    subject: "Estructuras de Datos I",
+    type: "doc",
+    size: "980 KB",
+    downloads: 760,
+    uploadedAt: "Hace 4 días",
+    uploadedById: "u1",
+    courseCode: "INF220",
+    description:
+      "Banco de ejercicios con soluciones en Python para autoevaluarte antes del parcial.",
+  },
+  {
+    id: "m6",
+    title: "Manual de Inglés Técnico I - Vocabulario básico",
+    subject: "Inglés Técnico I",
+    type: "pdf",
+    size: "2.1 MB",
+    downloads: 610,
+    uploadedAt: "Hace 5 días",
+    uploadedById: "u6",
+    courseCode: "LIN100",
+    description:
+      "Glosario de términos informáticos con pronunciación aproximada y ejemplos en contexto.",
+  },
+  {
+    id: "m7",
     title: "Video: Mecanismo de sustitución SN1 y SN2",
     subject: "Química Orgánica",
     type: "video",
@@ -41,7 +95,7 @@ export const materials: Material[] = [
       "Clase grabada con animaciones de los mecanismos de reacción y comparación de factores.",
   },
   {
-    id: "m4",
+    id: "m8",
     title: "Plantilla de informe académico (Word)",
     subject: "Metodología",
     type: "doc",
@@ -53,7 +107,46 @@ export const materials: Material[] = [
       "Plantilla con estilos de título, citas y referencias ya configurados en normas APA.",
   },
   {
-    id: "m5",
+    id: "m9",
+    title: "Guía de Seguridad - Phishing y contraseñas",
+    subject: "Auditoría Informática",
+    type: "pdf",
+    size: "1.5 MB",
+    downloads: 480,
+    uploadedAt: "Hace 1 semana",
+    uploadedById: "u8",
+    courseCode: "INF462",
+    description:
+      "Checklist para detectar correos maliciosos y buenas prácticas de contraseñas.",
+  },
+  {
+    id: "m10",
+    title: "Tecnología Web - Flexbox y Grid en 20 min",
+    subject: "Tecnología Web",
+    type: "link",
+    size: "—",
+    downloads: 690,
+    uploadedAt: "Hace 1 semana",
+    uploadedById: "u1",
+    courseCode: "INF513",
+    description:
+      "Playground interactivo con ejercicios guiados de layout moderno en CSS.",
+  },
+  {
+    id: "m11",
+    title: "Resumen de Álgebra Lineal - Vectores y Matrices",
+    subject: "Álgebra Lineal",
+    type: "pdf",
+    size: "1.9 MB",
+    downloads: 1540,
+    uploadedAt: "Hace 2 semanas",
+    uploadedById: "u2",
+    courseCode: "MAT103",
+    description:
+      "Fórmulas clave, propiedades y ejercicios tipo para el primer parcial.",
+  },
+  {
+    id: "m12",
     title: "Ejercicios resueltos - Anatomía del corazón",
     subject: "Anatomía II",
     type: "pdf",
@@ -64,7 +157,7 @@ export const materials: Material[] = [
     description: "Banco de preguntas con respuestas justificadas para autoevaluación.",
   },
   {
-    id: "m6",
+    id: "m13",
     title: "Colección de texturas para renders",
     subject: "Diseño Arquitectónico",
     type: "link",
@@ -75,3 +168,7 @@ export const materials: Material[] = [
     description: "Enlace a un repositorio abierto con texturas libres de uso académico.",
   },
 ];
+
+export function getMaterialsBySubject(code: string): Material[] {
+  return materials.filter((m) => m.courseCode === code);
+}

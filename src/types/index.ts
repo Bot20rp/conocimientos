@@ -91,6 +91,7 @@ export interface Material {
   uploadedAt: string;
   uploadedById: string;
   courseSlug?: string;
+  courseCode?: string;
   description: string;
 }
 
@@ -141,6 +142,7 @@ export interface Publication {
   gradient: string;
   featured?: boolean;
   difficulty: "Principiante" | "Intermedio" | "Avanzado";
+  courseCode?: string;
   blocks: PublicationBlock[];
 }
 
@@ -225,4 +227,25 @@ export interface HistoryEntry {
   publicationSlug: string;
   lastReadAt: string;
   progress: number;
+}
+
+/* ============ Malla curricular ============ */
+
+export type SubjectType = "obligatoria" | "electiva";
+
+export interface Subject {
+  code: string;
+  name: string;
+  semester: number;
+  type: SubjectType;
+  credits: number;
+  area: string;
+  gradient: string;
+  icon: string;
+}
+
+export interface Semester {
+  number: number;
+  gestion: string;
+  subjects: Subject[];
 }
